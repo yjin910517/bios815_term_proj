@@ -3,6 +3,7 @@
 #include <math.h> 
 #include <limits>
 using namespace Rcpp;
+//using namespace std;
 
 // [[Rcpp::export]]
 List funk_svd(arma::mat& X, int n_features=10,
@@ -53,12 +54,15 @@ List funk_svd(arma::mat& X, int n_features=10,
     }
     
     prev_err=error_sum;
+    //cout<<error_sum<<endl;
     
   }//end of each iteration
   
   return List::create(Named("U") = U,
                       Named("V") = V,
                       Named("Iterations")=iter,
-                      Named("Errors")=error_sum/n_users/n_items);
+                      // RMSE
+                      Named("Errors")=pow(error_sum/arma::accu(X>0),0.5)
+                      );
 }
 
