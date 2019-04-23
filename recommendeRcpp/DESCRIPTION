@@ -1,0 +1,12 @@
+Package: recommendeRcpp
+Type: Package
+Title: Implementations of two recommendation algorithms, UBCF and Funk SVD
+Version: 1.0
+Date: 2019-04-22
+Author: Yue Jin
+Maintainer: Yue Jin <jinyue@umich.edu>
+Description: Given user by item rating matrix, this package provide predictions of unknown ratings through UBCF or Funk SVD algorithm. Missing ratings should be represented as 0. Non-missing ratings should be re-scale to exclude zero.
+Imports: Rcpp (>= 0.12.13)
+LinkingTo: Rcpp, RcppArmadillo
+License: GPL-3
+RoxygenNote: 6.0.1
